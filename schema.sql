@@ -1,0 +1,6 @@
+CREATE TABLE links(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    category TEXT NOT NULL,
+    description TEXT NOT NULL,
+    url TEXT NOT NULL
+);
