@@ -37,3 +37,16 @@ def insert_link(data: list[Any]):
         conn.execute(stmt, data)
         conn.commit()
 
+def update(data: list[Any], id: int):
+    with engine.connect() as conn:
+        stmt = text("UPDATE links (category, description, url) VALUES (:category, :description, :url) WHERE id = :id;")
+        data.append({'id': id})
+        conn.execute(stmt, data)
+        conn.commit()
+
+def delete(id: int):
+    with engine.connect() as conn:
+        stmt = text("DELETE FROM links WHERE id = :id")
+        conn.execute(stmt, {'id': id})
+        conn.commit()
+

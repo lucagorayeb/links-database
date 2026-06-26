@@ -11,7 +11,7 @@ Lincence   : GNU/GPL v3.0
 Use:
 -----------------------------------------------------
 """
-from repository import insert_link, get_links_by_category, get_links_by_id, get_all_links
+from repository import insert_link, get_links_by_category, get_links_by_id, get_all_links, update, delete
 from dto import CreateLinkDTO, IdDTO
 
 def insert_link_in_db(data: CreateLinkDTO):
@@ -25,3 +25,9 @@ def get_links_by_id_from_db(id: IdDTO):
 
 def get_all_links_from_db():
     return get_all_links()
+
+def update_links(data: CreateLinkDTO, id: IdDTO):
+    return update(data, id)
+
+def delete_links(id: IdDTO):
+    return delete(id)
