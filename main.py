@@ -11,7 +11,7 @@ Lincence   : GNU/GPL v3.0
 Use:
 -----------------------------------------------------
 """
-from user_actions import *
+from controllers import *
 from config import *
 
 verify_database()
