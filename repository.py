@@ -15,38 +15,85 @@ from database import engine
 from sqlalchemy import text
 from typing import Any
 
-def get_all_links():
+
+def get_all_links_repository():
     with engine.connect() as conn:
         stmt = text("SELECT id, category, description, url FROM links")
         return conn.execute(stmt)
 
-def get_links_by_id(id: int):
+
+def get_link_by_id_repository(id: int):
     with engine.connect() as conn:
-        stmt = text("SELECT id, category, description, url FROM links WHERE id = :id")
+        stmt = text("""SELECT id,
+                            category,
+                            description,
+                            url
+                    FROM links WHERE id = :id""")
         return conn.execute(stmt, {'id': id})
 
-def get_links_by_category(category: str):
-    with engine.connect() as conn:
-        stmt = text("SELECT id, category, description, url FROM links WHERE category = :category")
-        return conn.execute(stmt, {'category': category})
-         
 
-def insert_link(data: list[Any]):
+def get_link_by_category_repository(category: str):
     with engine.connect() as conn:
-        stmt = text("INSERT INTO links (category, description, url) VALUES (:category, :description, :url);")
+        stmt = text("""SELECT id,
+                            category,
+                            description,
+                            url
+                    FROM links WHERE category = :category""")
+        return conn.execute(stmt, {'category': category})
+
+
+def create_link_repository(data: list[Any]):
+    with engine.connect() as conn:
+        stmt = text("""INSERT INTO links
+                    (
+                        category,
+                        description,
+                        url
+                    )
+                    VALUES
+                    (
+                        :category,
+                        :description,
+                        :url
+                    );""")
         conn.execute(stmt, data)
         conn.commit()
 
-def update(data: list[Any], id: int):
+
+def update_link_repository(data: list[Any], id: int):
     with engine.connect() as conn:
-        stmt = text("UPDATE links (category, description, url) VALUES (:category, :description, :url) WHERE id = :id;")
+        stmt = text("""UPDATE links
+                    (
+                        category,
+                        description,
+                        url
+                    )
+                    VALUES
+                    (
+                        :category,
+                        :description,
+                        :url
+                    )
+                    WHERE id = :id;""")
         data.append({'id': id})
         conn.execute(stmt, data)
         conn.commit()
 
-def delete(id: int):
+
+def delete_link_repository(id: int):
     with engine.connect() as conn:
         stmt = text("DELETE FROM links WHERE id = :id")
         conn.execute(stmt, {'id': id})
+        conn.commit()
+
+
+def get_data_to_update_bkp_file_repository(rows_bkp: int):
+    with engine.connect() as conn:
+        stmt = text("""SELECT id,
+                            category,
+                            description,
+                            url
+                    FROM links WHERE id > :id""")
+        conn.execute(stmt, {'id': rows_bkp})
         conn.commit()
 
