@@ -96,4 +96,3 @@ def get_data_to_update_bkp_file_repository(rows_bkp: int):
                     FROM links WHERE id > :id""")
         conn.execute(stmt, {'id': rows_bkp})
         conn.commit()
-
