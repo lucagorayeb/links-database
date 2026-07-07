@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 """
 -----------------------------------------------------
-Program    : config.py
+Program    : __init__.py
 Description:
 Version    : 0.1
 Author     : Luca Gorayeb <lucagorayeb@gmail.com>
-Date       : 25/06/2026
+Date       : 04/07/2026
 Lincence   : GNU/GPL v3.0
 -----------------------------------------------------
 Use:
 -----------------------------------------------------
 """
-from pathlib import Path
-import subprocess
-
-def verify_database():
-    db_path = Path('links.sqlite3');
-    if not db_path.exists():
-        subprocess.run(['sqlite3', 'links.sqlite3', '<', 'schema.sql'])
-
+from .repository import (
+    create_link_repository,
+    get_link_by_id_repository,
+    get_link_by_category_repository,
+    get_all_links_repository,
+    update_link_repository,
+    delete_link_repository
+)

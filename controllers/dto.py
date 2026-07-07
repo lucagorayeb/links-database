@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 -----------------------------------------------------
-Program    : main.py
+Program    : dto.py
 Description:
 Version    : 0.1
 Author     : Luca Gorayeb <lucagorayeb@gmail.com>
@@ -11,13 +11,14 @@ Lincence   : GNU/GPL v3.0
 Use:
 -----------------------------------------------------
 """
-from routes.cli_api import user_menu, user_interaction
-""" from config import (
-    verify_database,
-    security_backup
-)
+from pydantic import BaseModel, HttpUrl
 
-verify_database()
-security_backup() """
-user_menu()
-user_interaction()
+
+class CreateLinkDTO(BaseModel):
+    category: str
+    description: str
+    url: HttpUrl
+
+
+class IdDTO(BaseModel):
+    id: int

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 -----------------------------------------------------
-Program    : main.py
+Program    : database.py
 Description:
 Version    : 0.1
 Author     : Luca Gorayeb <lucagorayeb@gmail.com>
@@ -11,13 +11,7 @@ Lincence   : GNU/GPL v3.0
 Use:
 -----------------------------------------------------
 """
-from routes.cli_api import user_menu, user_interaction
-""" from config import (
-    verify_database,
-    security_backup
-)
+from sqlalchemy import create_engine
 
-verify_database()
-security_backup() """
-user_menu()
-user_interaction()
+
+engine = create_engine("sqlite+pysqlite:///links.sqlite3", echo=False)

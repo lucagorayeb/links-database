@@ -1,2 +1,6 @@
 sqlalchemy
 pydantic
+fastapi
+python-dotenv
+dotenv
+flake8
