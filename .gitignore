@@ -6,3 +6,4 @@ __pycache__/
 .env
 env_example
 links.sqlite3
+bkp_links.sqlite3

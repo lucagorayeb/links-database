@@ -12,12 +12,10 @@ Use:
 -----------------------------------------------------
 """
 from routes.cli_api import user_menu, user_interaction
-""" from config import (
-    verify_database,
-    security_backup
+from config.config import (
+    verify_database
 )
 
 verify_database()
-security_backup() """
 user_menu()
 user_interaction()
