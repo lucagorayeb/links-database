@@ -85,14 +85,3 @@ def delete_link_repository(id: int):
         stmt = text("DELETE FROM links WHERE id = :id")
         conn.execute(stmt, {'id': id})
         conn.commit()
-
-
-def get_data_to_update_bkp_file_repository(rows_bkp: int):
-    with engine.connect() as conn:
-        stmt = text("""SELECT id,
-                            category,
-                            description,
-                            url
-                    FROM links WHERE id > :id""")
-        conn.execute(stmt, {'id': rows_bkp})
-        conn.commit()

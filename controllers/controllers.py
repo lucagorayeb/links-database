@@ -9,7 +9,7 @@ Date       : 25/06/2026
 Lincence   : GNU/GPL v3.0
 -----------------------------------------------------
 """
-from .dto import CreateLinkDTO, IdDTO
+from .dto import CreateLinkDTO, IdDTO, CategoryDTO
 from services import (
     create_link_service,
     update_link_service,
@@ -36,7 +36,7 @@ def update_link_controller(data: CreateLinkDTO, id: IdDTO):
         raise
 
 
-def get_link_by_category_controller(category: str):
+def get_link_by_category_controller(category: CategoryDTO):
     try:
         return get_link_by_category_service(category)
     except Exception as error:
@@ -45,7 +45,6 @@ def get_link_by_category_controller(category: str):
 
 
 def get_link_by_id_controller(id: IdDTO):
-    id = input('Id: ')
     try:
         return get_link_by_id_service(int(id))
     except Exception as error:
@@ -67,11 +66,3 @@ def delete_link_controller(id: IdDTO):
     except Exception as error:
         print(f"Error {error=}, {type(error)=}")
         raise
-
-
-""" def get_data_to_update_bkp_file_controller(rows_bkp: int):
-    try:
-       return get_data_to_update_bkp_file_service(rows_bkp)
-    except Exception as error:
-        print(f"Error {error=}, {type(error)=}")
-        raise """

@@ -44,7 +44,3 @@ def update_link_service(data: list[Any], id: int):
 
 def delete_link_service(id: int):
     return delete_link_repository(id)
-
-
-""" def get_data_to_update_bkp_file_service(rows_bkp: int):
-    return get_data_to_update_bkp_file_repository(rows_bkp) """
