@@ -22,3 +22,7 @@ class CreateLinkDTO(BaseModel):
 
 class IdDTO(BaseModel):
     id: int
+
+
+class CategoryDTO(BaseModel):
+    category: str
