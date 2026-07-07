@@ -33,8 +33,11 @@ def user_menu():
 
 
 def user_interaction():
-    option = input('Select an option: ')
-    define_db_action(int(option))
+    try:
+        option = int(input('Select an option: '))
+        define_db_action(option)
+    except Exception:
+        print("""\nIvalid option! It has to be a numeric option!""")
 
 
 def define_db_action(option: int):
@@ -77,7 +80,7 @@ def get_link_by_category_api():
 
 def get_link_by_id_api():
     id = id_to_insert()
-    data = get_link_by_id_controller(id.id)
+    data = get_link_by_id_controller(id['id'])
     return show_data_from_bd(data)
 
 
@@ -114,7 +117,7 @@ def show_data_from_bd(data: list[Any]):
         print(f"Category: {dt.category}")
         print(f"Description: {dt.description}")
         print(f"URL: {dt.url}")
-        print()
+        print('\n')
 
 
 def finish_program():
