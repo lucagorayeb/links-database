@@ -5,3 +5,4 @@ __pycache__/
 *$py.class
 .env
 env_example
+links.sqlite3
