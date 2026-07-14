@@ -7,3 +7,4 @@ __pycache__/
 env_example
 links.sqlite3
 bkp_links.sqlite3
+.idea/

@@ -4,3 +4,4 @@ fastapi
 python-dotenv
 dotenv
 flake8
+flask
