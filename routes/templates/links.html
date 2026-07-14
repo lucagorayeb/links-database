@@ -1,15 +1,39 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="col-md-6 ">
-    <div class="card bg-secondary bg-opacity-10 border-secondary p-4">
-        <h2 class="card-title mb-3 text-light">Link List</h2>
 
-        <div>
+    <div class=" card bg-secondary bg-opacity-10 justify-content-center border-secondary p-4 container">
+        <div class="row">
+            <div class="col-md-6 row">
+                <h3 class="card-title mb-3  text-start text-light col-md-6">Total links: </h3>
+                <h3 class="card-title mb-3  text-start text-light col-md-6">Total categories: </h3>
+            </div>
+            <div class="col-md-6 row">
+                <p class="text-light"> filter</p>
 
+            </div>
         </div>
 
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Category</th>
+              <th scope="col">Description</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+
     </div>
-</div>
+
 
 {% endblock %}
