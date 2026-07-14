@@ -11,8 +11,10 @@ Lincence   : GNU/GPL v3.0
 Use:
 -----------------------------------------------------
 """
+from .routes import application
+
 from .models import models
 from .services import services
 from .controllers import controllers
 from .repository import repository
-from .routes import cli_api, web
+from .routes import cli_api
